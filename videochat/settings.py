@@ -94,7 +94,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)], # Connects to Redis on localhost (inside Docker, this means the Redis container)
+            "hosts": [('redis', 6379)],  # Use Redis service name from Docker Compose
             "capacity": 1500,
             "expiry": 10,
         },
@@ -104,7 +104,7 @@ CHANNEL_LAYERS = {
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://127.0.0.1:6379/1', # Connects to Redis on localhost (inside Docker)
+        'LOCATION': 'redis://redis:6379/1',  # Use Redis service name from Docker Compose
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         }
