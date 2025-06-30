@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+ASGI_APPLICATION = 'authentication.asgi.application'
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -49,7 +49,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.apple',
     'accounts',
-    'meetings'
+    'meetings',
+    'chat',
+    'channels'
 ]
 
 MIDDLEWARE = [
